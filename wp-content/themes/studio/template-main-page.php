@@ -147,23 +147,25 @@ get_header();
             </div>
         </div>
         <?php } ?>
-
+        
+        <?php if(get_field('enable_block_g_section_main_page', get_the_ID()) == 'yes'){ ?>
         <div class="start-project aniborder" id="start-project">
             <div class="container clearfix">
                 <div class="container-small clearfix">
                     <?php echo get_field('title_block_a_project_content_main_page', get_the_ID()); ?>
                     <div class="block-title draw wow fadeIn" data-wow-delay="0.3s">
-                        <?php echo get_field('title_block_a_project_content_main_page', get_the_ID()); ?>
+                        <?php echo get_field('title_block_b_project_content_main_page', get_the_ID()); ?>
                     </div>
 
                     <div class="start-project-block wow fadeIn">
                         <div class="launch"></div>
-                        <?php echo get_field('title_block_b_project_content_main_page', get_the_ID()); ?>
+                        <?php echo get_field('title_block_c_project_content_main_page', get_the_ID()); ?>
                         <a href="<?php echo get_permalink('144'); ?>" title=""><?php echo get_field('link_text_project_content_main_page', get_the_ID()); ?></a>
                     </div>
                 </div>
             </div>
         </div>
+        <?php } ?>
 
         <div id="openVideo" class="ng-hide">
             <a class="close" href="javascript:void(0);" title="Close"></a>
