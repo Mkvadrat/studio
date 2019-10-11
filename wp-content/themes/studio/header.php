@@ -87,9 +87,9 @@ Version: 2.5.0
                         <a href="mailto:<?php echo get_field('email_text_header_main_page', '8'); ?>"><?php echo get_field('email_text_header_main_page', '8'); ?></a>
                     </article>
 					
-					<?php if( have_rows('social_rep_header_main_page')){ ?>
+					<?php if( have_rows('social_rep_header_main_page', '8')){ ?>
                     <div class="social">
-						<?php while ( have_rows('social_rep_header_main_page') ) { the_row(); ?>
+						<?php while ( have_rows('social_rep_header_main_page', '8') ) { the_row(); ?>
                         <a href="<?php the_sub_field('link_subblock_main_page'); ?>" target="_blank" title="<?php the_sub_field('class_subblock_main_page'); ?>" class="<?php the_sub_field('class_subblock_main_page'); ?> wow fadeInUp">
                             <img src="<?php the_sub_field('image_subblock_main_page'); ?>">
                         </a>

@@ -61,25 +61,23 @@ get_header();
             </div>
         </section>
         <?php } ?>
-        
-        <?php if(get_field('enable_block_d_section_contacts_page', get_the_ID()) == 'yes'){ ?>
+
         <section class="career" id="career">
             <div class="container">
-                <h2 class="wow fadeInUpSmall" style="visibility: hidden; animation-name: none;"><?php echo get_field('title_block_a_career_content_contacts_page', get_the_ID()); ?></h2>
+                <?php echo get_field('title_block_a_career_content_main_page', '8'); ?>
                 <div class="container-small clearfix">
                     <div class="block-title draw" data-class="btcustom">
-                        <?php echo get_field('title_block_b_career_content_contacts_page', get_the_ID()); ?>
+                        <?php echo get_field('title_block_a_career_content_main_page', '8'); ?>
                     </div>
                 </div>
 
                 <div class="container-medium clearfix">
                     <div class="career-withus">
-                        <?php echo get_field('title_block_c_career_content_contacts_page', get_the_ID()); ?>
+                        <?php echo get_field('title_block_b_career_content_main_page', '8'); ?>
                     </div>
                 </div>
             </div>
         </section>
-        <?php } ?>
     </section>
             
 <?php get_footer(); ?>

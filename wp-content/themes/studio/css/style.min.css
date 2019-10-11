@@ -165,7 +165,7 @@ h1 .td-logo {
 h1 .band {
     width: 100px;
     height: 100px;
-    background: url(../images/brand-bg.png) left center no-repeat;
+    #background: url(../images/brand-bg.png) left center no-repeat;
     padding: 0;
     text-align: center;
     animation: bg-pos-move 11s infinite alternate linear, bounce;
