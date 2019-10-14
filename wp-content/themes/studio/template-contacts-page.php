@@ -12,7 +12,7 @@ get_header();
                 <?php if(get_field('enable_block_a_section_contacts_page', get_the_ID()) == 'yes'){ ?>
                 <div class="container-small clearfix">
                     <div class="block-title bte wowd draw fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
-                        <div class="title"><?php the_title(); ?></div>
+                        <h1 class="title"><?php the_title(); ?></h1>
                         <?php echo get_field('title_block_a_award_content_contacts_page', get_the_ID()); ?>
                     </div>
                     <div class="contact-tag wowd fadeInUpSmall" style="visibility: visible; animation-name: fadeInUpSmall;">

@@ -1,223 +1,174 @@
 <?php
 /*
-Theme Name: The au-studio
-Theme URI: http://au-studio.new.treng.net
-Author: kokky
-Author URI: http://au-studio.new.treng.net
-Description: Theme for http://au-studio.new.treng.net
+Theme Name: Mkvadrat
+Theme URI: http://mkvadrat.com
+Author: q3dm0
+Author URI: http://mkvadrat.com
+Description: Theme for http://mkvadrat.com
 Version: 2.5.0
 */
 
 get_header();
 ?>
 	
-	<main class="main">
-		<section class="top-block">
-			<?php $image_url = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'full'); ?>
-            <img src="<?php echo $image_url[0] ? $image_url[0] : '/wp-content/themes/studio/images/maxresdefault.jpg'; ?>" alt="life-studios-bg" class="w-100 img-fluid">
-			
-			<div class="container top-block-content">
-				 <h1 class="title"><?php the_title(); ?></h1>
-				 <p class="text" style="max-width: 100%"><?php echo get_field('additional_title_post_page', get_the_ID()); ?></p>
-			</div>
-		</section>
-		<section class="features">
-		<div class="container">
-			<div class="row features-top">
-				<div class="col-md-5">
-					<?php echo get_field('features_text_post_page', get_the_ID()); ?>
-				</div>
-		   
-				<div class="col-md-7">
-					<?php echo get_field('about_text_post_page', get_the_ID()); ?>
-				</div>
-			</div>
-			<?php if( have_rows('rooms_first_post_page') || have_rows('rooms_second_post_page') || have_rows('building_rep_post_page')){ ?>
-			<h2 class="subtitle">Features</h2>
-			<div class="features-wrapper">
-				<div class="row">
-					<div class="col-md-4">
-						<h3 class="features-subtitle">Building</h3>
-						<ul class="list-unstyled">
-							<?php while ( have_rows('building_rep_post_page') ) { the_row(); ?>
-								<li><?php the_sub_field('name_subblock_post_page'); ?></li>
-							<?php } ?>	
-						</ul>
-					</div>
-					
-					<div class="col-md-1"></div>
-					
-					<div class="col-md-7">
-						<h3 class="features-subtitle">Rooms</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<ul class="list-unstyled">
-									<?php while ( have_rows('rooms_first_post_page') ) { the_row(); ?>
-										<li><?php the_sub_field('name_subblock_post_page'); ?></li>
-									<?php } ?>
-								  </ul>
-							</div>
-							
-							<div class="col-md-6">
-							  <ul class="list-unstyled">
-								<?php while ( have_rows('rooms_second_post_page') ) { the_row(); ?>
-									<li><?php the_sub_field('name_subblock_post_page'); ?></li>
-								<?php } ?>
-							  </ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<?php } ?>
-		</div>
-		</section>
-		
-		<?php if( have_rows('slider_rep_post_page')){ ?>
-		<section class="location-slider">
-			<div class="container">
-				<div class="wrapper-slider">
-					<?php while ( have_rows('slider_rep_post_page') ) { the_row(); ?>
-					<?php $image = get_sub_field('image_subblock_post_page'); ?>
-					<div><img src="<?php echo kama_thumb_src('w=1110&h=650&q=85&src='. $image); ?>" class="img-fluid w-100"></div>
-					<?php } ?>
-				</div>
-			</div>
-		</section>
-		<?php } ?>
-		
-		<!--<section class="map-area">
-		   <div id="accordion">
-			   <div class="card">
-				 <div class="card-header" id="headingOne-map">                  
-					 <button class="btn btn-link w-100" data-toggle="collapse" data-target="#collapseOne-map" aria-expanded="true" aria-controls="collapseOne-map">
-						 The Area
-					 </button>
-				  
-				 </div>
-			 
-				 <div id="collapseOne-map" class="collapse show" aria-labelledby="headingOne-map" data-parent="#accordion">
-				  
-					 <img src="images/location-area-map.jpg" alt="map" class="img-fluid w-100">
-				   
-				 </div>
-			   </div>
-			   
-			   
-			 </div>
-			 <div class="choice card">
-			   <a href="#">Cafe / Restaurants</a>
-			   <a href="#">Schools</a>
-			   <a href="#">Transport</a>
-			   <a href="#">Recreation</a>
-			 </div>
-		</section>-->
-		
-		<section class="b-w">
-		   <div class="bg-color container-fluid">
-			   <div class="row h-100">
-				   <div class="col-md-6 bg-color-dark"></div>
-				   <div class="col-md-6 bg-color-white"></div>
-			   </div>
-		   </div>
-		   <div class="container text-center">
-			   <div class="row">
-				   <div class="col-md-6 text-white">
-					   <?php echo get_field('free_tour_smalltext_post_page', get_the_ID()); ?>
-				   </div>
-				   <div class="col-md-6">
-					   <?php echo get_field('enquire_today_smalltext_post_page', get_the_ID()); ?>
-				   </div>
-			   </div>
-		   </div>
-	   </section>
-		
-	   <section class="faq">
-            <div class="container">
-                <h2 class="d-subtitle text-center"><?php echo get_field('title_faq_about_page', '91'); ?></h2>
-                <?php
-                    $tab_a_faq = get_field_object('faq_articles_a_about_page', '91');
-                    $tab_b_faq = get_field_object('faq_articles_b_about_page', '91');
-                    $tab_c_faq = get_field_object('faq_articles_c_about_page', '91');
-                ?>
-                
-                <nav>
-                    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><?php echo get_field('text_tab_a_about_page', '91'); ?></a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><?php echo get_field('text_tab_b_about_page', '91'); ?></a>
-                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><?php echo get_field('text_tab_c_about_page', '91'); ?></a>
-                    </div>
-                </nav>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <?php if($tab_a_faq['value']){ ?>
-                        <div class="accordion" id="accordionExample">
-                            <?php foreach($tab_a_faq['value'] as $key => $object){ ?>
-                            <div class="card">
-                                <div class="card-header" id="headingOne-<?php echo $key; ?>">
-                                    <span><?php echo $object->post_title; ?></span>    
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne-<?php echo $key; ?>" aria-expanded="true" aria-controls="collapseOne">
-                                        +
-                                    </button>
-                                </div>
-                          
-                                <div id="collapseOne-<?php echo $key; ?>" class="collapse" aria-labelledby="headingOne-<?php echo $key; ?>" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <?php echo $object->post_content; ?>
-                                    </div>
-                                </div>
+	<section id="ng-container">
+        <section class="project-detail" id="project-detail">
+            <div class="project-detail-wrapper">
+                <div class="project-photo">
+                    <img alt="" src="images/photo.jpg">
+                    <div class="container">
+                        <div class="container-small clearfix">
+                            <div class="block-title bte draw wow fadeInDown  btb-active">
+                                <div class="title">Work / <br>design</div>
+                                <p>Our clients really <br>value our work</p>
                             </div>
-                            <?php } ?>
-                        </div>
-                        <?php } ?>
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <?php if($tab_b_faq['value']){ ?>
-                        <div class="accordion" id="accordionExample">
-                            <?php foreach($tab_b_faq['value'] as $key => $object){ ?>
-                            <div class="card">
-                                <div class="card-header" id="headingOne-<?php echo $key; ?>">
-                                    <span><?php echo $object->post_title; ?></span>    
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne-<?php echo $key; ?>" aria-expanded="true" aria-controls="collapseOne">
-                                        +
-                                    </button>
-                                </div>
-                          
-                                <div id="collapseOne-<?php echo $key; ?>" class="collapse" aria-labelledby="headingOne-<?php echo $key; ?>" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <?php echo $object->post_content; ?>
-                                    </div>
-                                </div>
+                            <div class="project-title wow fadeIn">
+                                <h2>Logo &amp; Branding</h2>
+                                <h3>design India</h3>
+                                <div ng-bind-html="projectLink"><a href="#">Coming Soon</a></div>
                             </div>
-                            <?php } ?>
                         </div>
-                        <?php } ?>
-                    </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        <?php if($tab_c_faq['value']){ ?>
-                        <div class="accordion" id="accordionExample">
-                            <?php foreach($tab_c_faq['value'] as $key => $object){ ?>
-                            <div class="card">
-                                <div class="card-header" id="headingOne-<?php echo $key; ?>">
-                                    <span><?php echo $object->post_title; ?></span>    
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne-<?php echo $key; ?>" aria-expanded="true" aria-controls="collapseOne">
-                                        +
-                                    </button>
-                                </div>
-                          
-                                <div id="collapseOne-<?php echo $key; ?>" class="collapse" aria-labelledby="headingOne-<?php echo $key; ?>" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <?php echo $object->post_content; ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php } ?>
-                        </div>
-                        <?php } ?>
                     </div>
                 </div>
-           </div> 
-		</section>
-    </main>
+                <div class="project-details-inner">
+                    <div class="project-content">
+                        <div class="container">
+                            <div class="container-medium clearfix">
+                                <h2 class="wow fadeInUp" ng-bind-html="project.p1_title">We create beautiful <br> logo &amp; branding</h2>
+                                <div class="project-service wow fadeInUp" data-wow-delay="0.5s">
+                                    <h4>Category</h4>
+                                    <ul>
+                                        <li>Restorent and cafe</li>
+                                        <li>Sports and games</li>
+                                        <li>Business and professioanl</li>
+                                        <li>Cloths and garments</li>
+                                        <li>Pets and animal</li>
+                                        <li>Clean and sharp</li>
+                                        <li>many more...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ajax">
+                        <div>
+                            <div class="branding-projects">
+                                <div class="branding1">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo1.jpg"
+                                             alt="Branding and logo design">
+                                    </div>
+                                </div>
+                                <div class="branding2">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo2.jpg"
+                                             alt="Branding and logo design">
+                                    </div>
+                                </div>
+                                <div class="branding3">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo3.jpg"
+                                             alt="Branding and logo design">
+                                    </div>
+                                </div>
+                                <div class="branding4">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo4.jpg"
+                                             alt="Branding and logo design">
+                                    </div>
+                                </div>
+                                <div class="branding5">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo5.jpg"
+                                             alt="Branding and logo design">
+                                    </div>
+                                </div>
+                                <div class="branding6">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo6.jpg"
+                                             alt="Branding and logo design">
+                                    </div>
+                                </div>
+                                <div class="branding7">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo7.jpg"
+                                             alt="Branding and logo design">
+                                        <img src="images/waiter.png"
+                                             alt="Branding and logo design" class="waiter wow fadeInLeft">
+                                        <img src="images/mug.png"
+                                             alt="Branding and logo design" class="mug wow fadeInRight">
+                                    </div>
+                                </div>
+                                <div class="branding8">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo8.jpg"
+                                             alt="Branding and logo design">
+                                    </div>
+                                </div>
+                                <div class="branding9">
+                                    <div class="container clearfix wow fadeInUp">
+                                        <img src="images/logo9.jpg"
+                                             alt="Branding and logo design">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-nav">
+                        <div class="container clearfix">
+                            <div class="line btwe"></div>
+                            <a class="back-nav" href="design.html">
+                                <svg height="24px" width="24px" role="img">
+                                    <use xlink:href="images/svg_symbols.svg#nav-all" id="miu"></use>
+                                </svg>
+                            </a>
+                            <a class="next-nav" href="#">Next
+                                <span>UI/UX</span></a>
+                            <div class="line bottom-line btwe"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <div class="sticky-proj-nav">
+            <a class="sticky-list-nav" href="design.html">
+                <svg height="24px" width="24px" role="img">
+                    <use xlink:href="images/svg_symbols.svg#nav-all" title="Work" id="miu"></use>
+                </svg>
+            </a>
+            <a class="sticky-next-nav" href="#">
+                <svg height="35px" width="80px" role="img">
+                    <use xlink:href="images/svg_symbols.svg#nav-arrow"></use>
+                </svg>
+            </a>
+
+        </div>
+
+        <div>
+            <section class="start-project" id="start-project">
+                <div class="container clearfix">
+                    <div class="container-small clearfix">
+                        <h2 class="wow fadeInUpSmall">Are
+                            you looking for real talent for <br>your dream projects?</h2>
+                        <div class="block-title draw wow fadeIn">
+                            <div class="title">Inquire</div>
+                            <p>We will respond to you within 24 hours</p>
+                        </div>
+                        <div class="start-project-block wow fadeIn" data-wow-delay="0.1s">
+                            <div class="launch"></div>
+                            <h3>Do you have a <br>project in mind?</h3>
+                            <a href="#">Let's start your project</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <a href="index.html" class="moveup" style="display: none;">
+                <svg height="35px" width="80px" role="img">
+                    <use xlink:href="images/svg_symbols.svg#nav-arrow"></use>
+                </svg>
+            </a>
+        </div>
+    </section>
+	
 <?php get_footer(); ?>

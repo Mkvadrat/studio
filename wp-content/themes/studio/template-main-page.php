@@ -110,12 +110,9 @@ get_header();
                     </div>
                     <div class="agency-founder wow fadeIn td-hx" data-wow-delay="0.3s">
                         <div class="block-title draw">
-                            <div class="title">Sunny <br> Rathod</div>
-                            <p>Founder &amp; CEO</p>
+                            <?php echo get_field('title_block_d_agency_content_main_page', get_the_ID()); ?>
                         </div>
-                        <a href="<?php echo get_permalink('118'); ?>" title="">
-                            <div class="img tdhxe"></div>
-                        </a>
+                        <?php echo get_field('title_block_e_agency_content_main_page', get_the_ID()); ?>
                     </div>
                     <div class="agency-video mobile-hide wow fadeInUpSmall">
                         <a data-fancybox href="<?php echo get_field('link_text_agency_content_main_page', get_the_ID()); ?>">

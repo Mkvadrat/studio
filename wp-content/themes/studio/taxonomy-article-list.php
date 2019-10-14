@@ -25,7 +25,7 @@ get_header();
                     <div class="container">
                         <div class="container-small clearfix">
                             <div class="block-title bte draw wowd fadeInDown">
-                                <div class="title"><?php echo $term->name; ?></div>
+                                <h1 class="title"><?php echo $term->name; ?></h1>
 								
                                 <?php echo get_term_meta($cat_id, 'main_text_block_a_blog_rubric_page', true); ?>
                             </div>

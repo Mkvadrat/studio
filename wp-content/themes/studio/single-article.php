@@ -20,7 +20,7 @@ get_header();
                     <div class="container">
                         <div class="container-small clearfix">
                             <div class="blogs-title wowd fadeIn">
-                                <h2><?php the_title(); ?></h2>
+                                <h1><?php the_title(); ?></h1>
                             </div>
                         </div>
                     </div>

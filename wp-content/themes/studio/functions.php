@@ -84,6 +84,20 @@ if(function_exists('register_nav_menus')){
 	);
 }
 
+function my_acf_add_local_field_groups() {
+    remove_filter('acf_the_content', 'wpautop' );
+}
+add_action('acf/init', 'my_acf_add_local_field_groups');
+
+//Вывод id категории
+function getCurrentCatID(){
+	global $wp_query;
+	if(is_category()){
+		$cat_ID = get_query_var('cat');
+	}
+	return $cat_ID;
+}
+
 /**********************************************************************************************************************************************************
 ***********************************************************************************************************************************************************
 ***********************************************************************"РАЗДЕЛ БЛОГ"***********************************************************************
@@ -252,3 +266,93 @@ function parse_request_url_post( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'parse_request_url_post' );
+
+/**********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
+**************************************************************************"РАЗДЕЛ ОТЗЫВЫ "*****************************************************************
+***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************/
+function register_post_type_reviews() {
+	$labels = array(
+		'name' => 'Отзывы',
+		'singular_name' => 'Отзывы',
+		'add_new' => 'Добавить статью',
+		'add_new_item' => 'Добавить новую статью',
+		'edit_item' => 'Редактировать статью',
+		'new_item' => 'Новая статью',
+		'all_items' => 'Все статьи',
+		'view_item' => 'Просмотр статей на сайте',
+		'search_items' => 'Искать статью',
+		'not_found' => 'Статья не найден.',
+		'not_found_in_trash' => 'В корзине нет статьи.',
+		'menu_name' => 'Отзывы'
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'exclude_from_search' => true,
+		'show_ui' => true,
+		'has_archive' => false,
+		'menu_icon' => 'dashicons-thumbs-up',
+		'menu_position' => 20,
+		'supports' =>  array('title','editor', 'thumbnail'),
+		'publicly_queryable'  => false,
+		'query_var'           => false
+	 );
+ 	register_post_type('reviews', $args);
+}
+add_action( 'init', 'register_post_type_reviews' );
+
+function true_post_type_reviews( $reviews ) {
+
+	global $post, $post_ID;
+
+	$reviews['reviews'] = array(
+		0 => '',
+		1 => sprintf( 'Статьи обновлены. <a href="%s">Просмотр</a>', esc_url( get_permalink($post_ID) ) ),
+		2 => 'Статья обновлёна.',
+		3 => 'Статья удалёна.',
+		4 => 'Статья обновлена.',
+		5 => isset($_GET['revision']) ? sprintf( 'Статья восстановлена из редакции: %s', wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+		6 => sprintf( 'Статья опубликована на сайте. <a href="%s">Просмотр</a>', esc_url( get_permalink($post_ID) ) ),
+		7 => 'Статья сохранена.',
+		8 => sprintf( 'Отправлена на проверку. <a target="_blank" href="%s">Просмотр</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+		9 => sprintf( 'Запланирована на публикацию: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Просмотр</a>', date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+		10 => sprintf( 'Черновик обновлён. <a target="_blank" href="%s">Просмотр</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+	);
+
+	return $reviews;
+}
+add_filter( 'post_updated_messages', 'true_post_type_reviews' );
+
+/**********************************************************************************************************************************************************
+***********************************************************************************************************************************************************
+************************************************************ПЕРЕИМЕНОВАВАНИЕ ЗАПИСЕЙ В ПРОЕКТЫ*************************************************************
+***********************************************************************************************************************************************************
+***********************************************************************************************************************************************************/
+function change_post_menu_label() {
+    global $menu, $submenu;
+    $menu[5][0] = 'Проекты';
+    $submenu['edit.php'][5][0] = 'Проекты';
+    $submenu['edit.php'][10][0] = 'Добавить проект';
+    $submenu['edit.php'][16][0] = 'Метки';
+    echo '';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
+
+function change_post_object_label() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Продукты';
+    $labels->singular_name = 'Проекты';
+    $labels->add_new = 'Добавить проект';
+    $labels->add_new_item = 'Добавить проект';
+    $labels->edit_item = 'Редактировать проект';
+    $labels->new_item = 'Добавить проект';
+    $labels->view_item = 'Посмотреть проект';
+    $labels->search_items = 'Найти проект';
+    $labels->not_found = 'Не найдено';
+    $labels->not_found_in_trash = 'Корзина пуста';
+}
+add_action( 'init', 'change_post_object_label' );
