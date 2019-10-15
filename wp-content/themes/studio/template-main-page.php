@@ -17,7 +17,7 @@ get_header();
                     <div class="landing-slogan">
                         <div class="landing-slogan-wrapper">
                             <h2 class="wow fadeInUpSmall"><?php echo get_field('title_text_logotype_content_main_page', get_the_ID()); ?></h2>
-                            <a href="<?php echo get_permalink('77'); ?>" title="" class="wow fadeInUpSmall red" data-wow-delay="0.5s"><?php echo get_field('link_text_logotype_content_main_page', get_the_ID()); ?></a>
+                            <a href="<?php echo get_category_link('7'); ?>" title="" class="wow fadeInUpSmall red" data-wow-delay="0.5s"><?php echo get_field('link_text_logotype_content_main_page', get_the_ID()); ?></a>
                         </div>
                     </div>
                     <div class="mouse-icon">
