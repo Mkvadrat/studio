@@ -98,7 +98,8 @@ get_header();
                 <svg height="35px" width="80px" role="img">
                     <use xlink:href="/wp-content/themes/studio/images/svg_symbols.svg#nav-arrow"></use>
                 </svg>
-            </a></div>
+            </a>
+		</div>
     </section>
 
 <?php get_footer(); ?>

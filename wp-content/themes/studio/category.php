@@ -63,32 +63,25 @@ get_header();
                                 $projects = get_posts( $args );
                                 
                                 if($projects){
-                                foreach( $projects as $projects_list ){
-                                    $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($projects_list->ID), 'full');
-                                    $short_descr = get_field('short_description_project_post_page', $projects_list->ID);
+                                    foreach( $projects as $projects_list ){
+                                        $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($projects_list->ID), 'full');
+                                        $short_descr = get_field('short_description_project_post_page', $projects_list->ID);
                             ?>	
-                            <li class="wow fadeInUpSmall" data-wow-delay="0s">
-                                <a href="<?php echo get_permalink($projects_list->ID); ?>"><img src="/wp-content/themes/studio/images/spacer.png" alt="Design and Development" width="100%">
-                                    <div class="img" style="background:url('<?php echo $image_url[0] ? $image_url[0] : '/wp-content/themes/studio/images/brand-design.jpg'; ?>') no-repeat;"></div>
-                                    <div class="img-clone" style="background:#ee4610 url('<?php echo $image_url[0] ? $image_url[0] : '/wp-content/themes/studio/images/brand-design.jpg'; ?>') no-repeat;"></div>
-                                </a>
-                                <div class="block-title btwe draw">
-                                    <div class="title"><?php echo $projects_list->post_title; ?></div>
-                                    
-                                    <?php echo $projects_list->post_excerpt; ?>
-                                </div>
-                            </li>
-                            <?php } 
-                                
-                                wp_reset_postdata(); 
-                                
-                                }else{
+                                        <li class="wow fadeInUpSmall" data-wow-delay="0s">
+                                            <a href="<?php echo get_permalink($projects_list->ID); ?>"><img src="/wp-content/themes/studio/images/spacer.png" alt="Design and Development" width="100%">
+                                                <div class="img" style="background:url('<?php echo $image_url[0] ? $image_url[0] : '/wp-content/themes/studio/images/brand-design.jpg'; ?>') no-repeat;"></div>
+                                                <div class="img-clone" style="background:#ee4610 url('<?php echo $image_url[0] ? $image_url[0] : '/wp-content/themes/studio/images/brand-design.jpg'; ?>') no-repeat;"></div>
+                                            </a>
+                                            <div class="block-title btwe draw">
+                                                <div class="title"><?php echo $projects_list->post_title; ?></div>
+                                                
+                                                <?php echo $projects_list->post_excerpt; ?>
+                                            </div>
+                                        </li>
+                            <?php   } 
+                                    wp_reset_postdata(); 
+                                }
                             ?>
-                                <h4>Извините, в данной рубрике проекты отсутствуют.</h4>
-                                <div>
-                                    <p>Проекты не найдены...</p>
-                                </div>
-                            <?php } ?>
                         </ul>
                     </div>
                     <?php
