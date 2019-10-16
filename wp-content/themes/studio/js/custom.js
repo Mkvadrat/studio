@@ -243,7 +243,7 @@ $(document).ready(function () {
         )
     }
 
-    if ($('.projects-page .wowd').length || $('.contact-page .wowd').length || $('.blogs .wowd').length) {
+    if ($('.projects-page .wowd').length || $('.contact-page .wowd').length || $('.blogs .wowd').length || $('.project-page .wowd').length || $('.project-form.wowd').length) {
         setTimeout(function () {
             var wow = new WOW(
                 {
@@ -286,6 +286,12 @@ $(document).ready(function () {
             $(this).parent().removeClass('active');
         });
     }
-
-
+    if ($('.project-form').length) {
+        $(".start-project-type li").each(function () {
+            $(this).find('input[type="checkbox"]').prop("checked") ? $(this).addClass("active") : $(this).removeClass("active")
+        }),
+        $('.start-project-type li, .start-project-type input[type="checkbox"]').click(function () {
+            $(this).toggleClass("active")
+        })
+    }
 });
