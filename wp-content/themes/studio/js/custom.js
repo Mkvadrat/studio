@@ -144,7 +144,7 @@ $(document).ready(function () {
     $('.awards-slider').bxSlider({
         mode: 'fade',
         pager: !1,
-        controls: !1,
+        controls: true,
         auto: !0,
         speed: 1500
     })
@@ -163,6 +163,12 @@ $(document).ready(function () {
         if ($('.home, .tag-line').offset() !== undefined) {
             if (this.pageYOffset > $('.home').offset().top - this.innerHeight) {
                 $('.home, .tag-line').css('height', 725 - (this.pageYOffset - ($('.tag-line').offset().top / 2)))
+            }
+        }
+
+        if ($('.home2, .tag-line').offset() !== undefined) {
+            if (this.pageYOffset > $('.home2').offset().top - this.innerHeight) {
+                $('.home2, .tag-line').css('height', 725 - (this.pageYOffset - ($('.tag-line').offset().top / 2)))
             }
         }
 
@@ -294,4 +300,25 @@ $(document).ready(function () {
             $(this).toggleClass("active")
         })
     }
+	
+	
+  $('.owl-carousel').owlCarousel({
+	  items: 1,
+	  autoplay: true,
+	  autoplayTimeout: 7000,
+	  loop: true
+  });
+	
 });
+
+(function($) {
+$(function() {
+ 
+  $('ul.tabs__caption').on('click', 'li:not(.active)', function() {
+    $(this)
+      .addClass('active').siblings().removeClass('active')
+      .closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
+  });
+ 
+});
+})(jQuery);

@@ -34,6 +34,7 @@ Version: 2.5.0
         <div class="tdlimg"></div>
         <span><?php echo get_field('preloader_text_header_main_page', '8'); ?></span>
     </div>
+    
 </div>
 <div id="wrapper" class="wrapanim">
     <header>
@@ -53,12 +54,14 @@ Version: 2.5.0
 
         <div class="header-right">
             <a href="<?php echo get_permalink('144'); ?>" title="" class="start-project"><?php echo get_field('start_text_header_main_page', '8'); ?></a>
-            <a href="#" title="Navigation" class="menu-icon"><em><?php echo get_field('menu_text_header_main_page', '8'); ?></em><span></span></a>
+            <div class="df"><a href="tel:+79165075851"><img src="http://mk2.mkvadrat.com/wp-content/themes/studio/images/whatsapp.svg" />+7 916 507-58-51</a>
+			<a href="tel:<?php echo get_field('menu_text_header_main_page', '8'); ?>"><?php echo get_field('menu_text_header_main_page', '8'); ?></a></div>
+			<a href="#" title="Navigation" class="menu-icon"><em></em><span></span></a>
         </div>
 
         <section class="main-navigation">
-            <div class="container clearfix">
-                <div class="container-small clearfix">
+            <div class="container clearfix h-100">
+                <div class="container-small clearfix h-100">
                     <nav>
 						<?php
 							if (has_nav_menu('nav_menu')){
@@ -86,16 +89,6 @@ Version: 2.5.0
                         <?php echo get_field('preemail_text_header_main_page', '8'); ?><br>
                         <a href="mailto:<?php echo get_field('email_text_header_main_page', '8'); ?>"><?php echo get_field('email_text_header_main_page', '8'); ?></a>
                     </article>
-					
-					<?php if( have_rows('social_rep_header_main_page', '8')){ ?>
-                    <div class="social">
-						<?php while ( have_rows('social_rep_header_main_page', '8') ) { the_row(); ?>
-                        <a href="<?php the_sub_field('link_subblock_main_page'); ?>" target="_blank" title="<?php the_sub_field('class_subblock_main_page'); ?>" class="<?php the_sub_field('class_subblock_main_page'); ?> wow fadeInUp">
-                            <img src="<?php the_sub_field('image_subblock_main_page'); ?>">
-                        </a>
-                        <?php } ?>
-                    </div>
-					<?php } ?>
                 </div>
             </div>
         </section>

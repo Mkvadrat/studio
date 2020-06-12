@@ -31,11 +31,11 @@ get_header();
                     </div>
                 </div>
                 <div class="project-details-inner">
-                    <div class="project-content">
-                        <div class="container">
-                            <div class="container-medium clearfix">
+					<div class="ajax">
+						<div>						
                                 <?php echo get_field('name_project_post_page', get_the_ID()); ?>
 								<?php if( have_rows('category_rep_project_post_page')){ ?>
+							<div class="branding-projects">	
                                 <div class="project-service wow fadeInUp" data-wow-delay="0.5s">
                                     <h4><?php echo get_field('category_project_post_page', get_the_ID()); ?></h4>
                                     <ul>
@@ -44,18 +44,16 @@ get_header();
                                         <?php } ?>
                                     </ul>
                                 </div>
+							</div>
 								<?php } ?>
-                            </div>
+						</div>
+					</div>
+                    <div class="project-content">
+                        <div class="container">
+							<?php echo get_field('full_description_project_post_page', get_the_ID()); ?>
                         </div>
                     </div>
 					
-					<div class="ajax">
-						<div>
-							<div class="branding-projects">
-								<?php echo get_field('full_description_project_post_page', get_the_ID()); ?>							
-							</div>
-						</div>
-					</div>
 					
 					<?php 
 						$next = get_adjacent_post(true,'',false);
