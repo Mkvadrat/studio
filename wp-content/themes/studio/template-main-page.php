@@ -11,7 +11,7 @@ get_header();
         <div class="landing clearfix" id="landing">
             <div class="landing-wrapper">
                 <div class="lion">
-					<div class="owl-carousel main__carousel">
+					<div class="main-slider owl-carousel main__carousel">
 						<div class="main__item">
 							<div class="car__img"><img src="<?php echo get_field('logo_image_logotype_content_main_page', get_the_ID()); ?>"></div>
 							<div class="car__text">

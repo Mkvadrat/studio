@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30.492" height="33.617" viewBox="0 0 30.492 33.617">
+  <g id="calendar" transform="translate(1.668)">
+    <path id="Path_200" data-name="Path 200" d="M266.212,119.965h-.985v-.985h.985Zm-1.641,0h-.985v-.985h.985Zm0,0" transform="translate(-251.321 -112.731)" fill="#afaea8"/>
+    <path id="Path_201" data-name="Path 201" d="M27.839,234.3H-.683V212.844h-.985v22.437H28.824V212.844h-.985Zm0,0" transform="translate(0 -201.664)" fill="#afaea8"/>
+    <path id="Path_202" data-name="Path 202" d="M110.141,7.234l.8-.8V.8l-.8-.8h-2.188l-.8.8V6.433l.8.8Zm-2-6.026.224-.224h1.372l.224.224V6.025l-.224.224h-1.372l-.224-.224Zm0,0" transform="translate(-103.104)" fill="#afaea8"/>
+    <path id="Path_203" data-name="Path 203" d="M400.864,7.234l.8-.8V.8l-.8-.8h-2.188l-.8.8V6.433l.8.8Zm-2-6.026.224-.224h1.372l.224.224V6.025l-.224.224h-1.372l-.224-.224Zm0,0" transform="translate(-378.557)" fill="#afaea8"/>
+    <path id="Path_204" data-name="Path 204" d="M23.929,59.488v.985h3.91v5.265H-.683V60.473h3.91v-.985h-4.9v7.234H28.824V59.488Zm0,0" transform="translate(0 -56.364)" fill="#afaea8"/>
+    <path id="Path_205" data-name="Path 205" d="M194.93,59.488h9.839v.985H194.93Zm0,0" transform="translate(-186.271 -56.364)" fill="#afaea8"/>
+    <path id="Path_206" data-name="Path 206" d="M118.43,247.609l-8.179,8.179-3.414-3.414-3.958,3.958,7.372,7.372,12.137-12.137Zm-14.158,8.723,2.565-2.565,3.414,3.414L118.43,249,121,251.567l-10.744,10.744Zm0,0" transform="translate(-99.055 -234.603)" fill="#afaea8"/>
+  </g>
+</svg>

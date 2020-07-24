@@ -37,7 +37,7 @@ Version: 2.5.0
     
 </div>
 <div id="wrapper" class="wrapanim">
-    <header>
+    <header class="header">
         <h1>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Trionn Design" class="td-logo">
 				<span class="band">
@@ -80,7 +80,8 @@ Version: 2.5.0
 									'link_before'     => '',
 									'link_after'      => '',
 									'items_wrap'      => '<ul>%3$s</ul>',
-									'depth'           => 1,
+									'depth'           => 2,
+									'walker'          => new header_menu(),
 								) );
 							}
 						?>

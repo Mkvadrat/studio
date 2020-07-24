@@ -53,7 +53,7 @@ get_header();
                                	
 								<div class="social">
 									<?php while ( have_rows('social_rep_blog_post_page') ) { the_row(); ?>
-									<a href="<?php the_sub_field('link_subblock_blog_post_page'); ?>" target="_blank" title="<?php the_sub_field('class_subblockblog_post_page'); ?>" class="<?php the_sub_field('class_subblock_blog_post_page'); ?> wow fadeInUp">
+									<a href="<?php the_sub_field('link_subblock_blog_post_page'); ?>" target="_blank" title="<?php the_sub_field('class_subblock_blog_post_page'); ?>" class="<?php the_sub_field('class_subblock_blog_post_page'); ?> wow fadeInUp">
 										<img src="<?php the_sub_field('image_subblock_blog_post_page'); ?>">
 									</a>
 									<?php } ?>
